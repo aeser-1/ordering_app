@@ -12,10 +12,6 @@ class OrdersController < ApplicationController
         elsif  @order.price > @order.discount
             @order.payment = @order.price - @order.discount
         end
-
-       
-        
-        
         if @order.save
             redirect_to orders_path
         end
