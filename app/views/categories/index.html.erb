@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<h3>Category</h3><br />
+<hr>
+<%= form_for @category do |f| -%>
+    Category Name: <%= f.text_field :name, :required => true %> <%= f.submit %>
+<% end -%>
+<hr>
+<div class="container">
+    <h4>Available Categories</h4>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+      </tr>
+    </thead>
+    <tbody>      
+        <% if !@categories.blank? %>
+        <% for item in @categories %>
+        <tr><td><%= item.name %> </td></tr>
+        <% end %>
+        <% else %>
+        <% end %>        
+    </tbody>
+    </table>
+    </div>
+    </body>
+    </html>
+

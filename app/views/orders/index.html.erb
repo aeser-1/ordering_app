@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<h3>Ordering</h3><br />
+<hr>
+<%= form_for @order do |f| -%>
+    Firstname: <%= f.text_field :custfirstname, :required => true %><br />
+    Lastname: <%= f.text_field :custlastname, :required => true %><br />
+    Product Name: <%= f.text_field :name, :required => true %><br />
+    Category: <%= f.select :category, Category.all.collect {|c| [c.name]} %><br />
+    Currency: <%= f.select(:currency, options_for_select(['TL','EUR','USD'])) %><br />
+    Price: <%= f.text_field :price, :required => true %><br />
+    Discount: <%= f.text_field :discount %><br />
+    <%= f.submit %>
+<% end -%>
+<hr>
+
+</body>
+</html>
